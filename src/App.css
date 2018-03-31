@@ -1,0 +1,135 @@
+html,body{
+
+  margin-left: auto;
+  margin-right: auto;
+  size: A4;
+}
+body{
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+.container .background{
+  width: 200mm;
+  height: 277mm;
+  position: absolute;
+  background: rgba(255,255,255,0.1) url(airplane.svg) no-repeat right top;
+  opacity: 0.1;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.container{
+  display: grid;
+  grid-template-rows: 4em auto auto 8em;
+  grid-template-columns: 0.05em auto 0.05em;
+}
+
+.container .body{
+    background-color: white;
+    grid-row-start: 2;
+    grid-row-end:3;
+    grid-column-start: 2;
+    grid-column-end:3;
+}
+.container .header{
+
+  grid-row-start: 1;
+  grid-row-end:2;
+  grid-column-start: 2;
+  grid-column-end:3;
+  margin-bottom: 1.5em;
+  display: grid;
+  grid-template-rows: 1em 2em;
+  grid-template-columns:auto;
+  border-bottom: solid 1px lightgrey;
+}
+
+.container .footer {
+  background: linear-gradient(to right, #5390ce, lightblue);
+  grid-row-start: 4;
+  grid-row-end:5;
+  grid-column-start: 2;
+  grid-column-end:3;
+}
+.footer h1{
+  bottom: 0;
+  color:white;
+  margin-left: 14px;
+  margin-top:  20px;
+  font-weight: 100;
+  font-size: 2em;
+  font-stretch: expanded;
+  font-stretch:ultra-expanded;
+  text-decoration: underline;
+  text-decoration-color: #ceca4f;
+  text-decoration-skip-ink: edge;
+  text-decoration-style:dotted;
+}
+.mb5{
+  position:relative;
+}
+
+.header .date{
+  color: grey;
+  grid-row-start: 1;
+  grid-row-end:2;
+  grid-column-start: 1;
+  grid-column-end:3;
+}
+.header .nameFirstPerson{
+
+  grid-row-start: 1;
+  grid-row-end:2;
+  grid-column-start: 2;
+  grid-column-end:3;
+  text-align: right;
+
+}
+.reference, .nameFirstPerson, .date{
+  font-size: 12px;
+}
+.header .reference{
+  color: grey;
+  grid-row-start: 2;
+  grid-row-end:3;
+  grid-column-start: 2;
+  grid-column-end:3;
+  text-align: right;
+}
+
+.SimplePDF {
+  width: 200mm; /* width of pdf document box should be != 0 */
+  height: 262mm; /* height of pdf document box should be != 0 */
+  border: 1px dashed red; /* optional */
+  margin: 15px; /* optional */
+  padding: 15px; /* optional */
+  float: left; /* optional */
+
+}
