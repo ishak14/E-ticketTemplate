@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import "babel-polyfill";
 import {observable} from 'mobx';
 
 export class AppStore {
+  @observable test = 1;
 
 }

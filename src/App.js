@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "babel-polyfill";
 import './App.css';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Ticket from './components/Ticket';
@@ -13,10 +12,9 @@ class App extends Component {
     this.appStore = new AppStore();
   }
 
-
   render() {
+    console.log(this.appStore.test);
     return (
-
       <div className="container SimplePDF">
         <div className="background"></div>
         <div className="header">
