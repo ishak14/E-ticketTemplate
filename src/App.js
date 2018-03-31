@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import './App.css';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Ticket from './components/Ticket';
@@ -12,8 +12,11 @@ class App extends Component {
     this.appStore = new AppStore();
   }
 
+ componentWillMount(){
+  this.appStore.getSwedaviaData();
+}
   render() {
-    console.log(this.appStore.test);
+
     return (
       <div className="container SimplePDF">
         <div className="background"></div>
