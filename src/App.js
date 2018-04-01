@@ -4,33 +4,33 @@ import './App.css';
 import Ticket from './components/Ticket';
 import {observer} from 'mobx-react';
 import {AppStore} from './store/appStore';
+import Select from 'react-select';
 
 @observer
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'coconut'
+       value: 'coconut',
     };
     this.appStore = new AppStore();
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+}
+handleChange = (event)=> {
+  this.setState({value: event.target.value});
+}
+
+handleSubmit = (event) => {
+  alert('Your favorite flavor is: ' + this.state.value);
+  event.preventDefault();
 }
  componentWillMount(){
   this.appStore.getSwedaviaData();
 }
-handleChange(event) {
-  console.log(event.target.value);
-  this.setState({
-    value: event.target.value
-  });
-}
-handleSubmit(event){
-  alert('Your favorite flavor is: ' + this.state.value);
-  event.preventDefault();
-}
-  render() {
 
+  render() {
+    const { selectedOption } = this.state;
+    const value = selectedOption && selectedOption.value;
     return (
       <div className="container SimplePDF">
         <div className="background"></div>
@@ -61,22 +61,20 @@ handleSubmit(event){
             airplaneInfo="SK505"
             flightTime="3h 50m"
             />
-          <form onSubmit={this.handleSubmit.bind(this)}>
-                 <label>
-                   Pick your favorite La Croix flavor:
-                  <select value={this.state.value} onChange={this.handleChange.bind(this)}>
-                     <option value="grapefruit">Grapefruit</option>
-                     <option value="lime">Lime</option>
-                     <option value="coconut">Coconut</option>
-                     <option value="mango">Mango</option>
-                   </select>
-                 </label>
-                 <input type="submit" value="Submit" />
-               </form>
+            <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick your favorite La Croix flavor:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
         </div>
-        <div className="footer">
-          <h1>ANDYRESOR</h1>
-        </div>
+
       </div>
     );
   }
