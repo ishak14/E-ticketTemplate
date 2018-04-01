@@ -4,7 +4,7 @@ import './App.css';
 import Ticket from './components/Ticket';
 import {observer} from 'mobx-react';
 import {AppStore} from './store/appStore';
-import Select from 'react-select';
+
 
 @observer
 class App extends Component {
