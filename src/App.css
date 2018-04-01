@@ -8,12 +8,13 @@ body{
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
 }
-.container .background{
+.background{
   width: 200mm;
   height: 277mm;
   position: absolute;
   background: rgba(255,255,255,0.1) url(airplane.svg) no-repeat right top;
   opacity: 0.1;
+  z-index: 1;
 }
 
 .App {

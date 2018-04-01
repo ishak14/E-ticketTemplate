@@ -32,7 +32,7 @@ class App extends Component {
 
     return (
       <div className="container SimplePDF">
-        <div className="background"></div>
+
         <div className="header">
           <p className="date">den 23 april 2018 - den 29 april 2018</p>
           <p className="nameFirstPerson">
@@ -52,7 +52,7 @@ class App extends Component {
             departureIATA="ARN"
             arrivalDay="den 23 april 2018"
             arrivalTime="12:30"
-            arrivalCity="Erbil"
+            arrivalCity={this.state.value}
             arrivalAirport="Erbil international airport"
             arrivalIATA="EBL"
             referenceNumber="#EFC200D"
@@ -63,11 +63,8 @@ class App extends Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               Pick your favorite La Croix flavor:
-              <select value={this.state.value} onChange={this.handleChange}>
-                <option value="grapefruit">Grapefruit</option>
-                <option value="lime">Lime</option>
-                <option value="coconut">Coconut</option>
-                <option value="mango">Mango</option>
+              <select value={this.state.value} onChange={this.handleChange} style={{zIndex:"8000", marginLeft:'100px'}}>
+                {this.appStore.flights}
               </select>
             </label>
             <input type="submit" value="Submit" />
@@ -75,6 +72,7 @@ class App extends Component {
         </div>
 
       </div>
+
     );
   }
 }
