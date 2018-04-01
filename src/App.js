@@ -3,7 +3,7 @@ import './App.css';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Ticket from './components/Ticket';
 import {observer} from 'mobx-react';
-import {AppStore} from './store/AppStore';
+import {AppStore} from './store/appStore';
 
 @observer
 class App extends Component {
@@ -23,8 +23,11 @@ class App extends Component {
         <div className="header">
           <p className="date">den 23 april 2018 - den 29 april 2018</p>
           <p className="nameFirstPerson">
-            Andy Ishak
+
           </p>
+          <ul>
+          {this.appStore.flightID}
+          </ul>
           <p className="reference">
             #EF2244F2
           </p>
