@@ -5,7 +5,7 @@ import axios from "axios";
 
 export class AppStore {
   @observable test = 1;
-  @observable flights;
+  @observable flights = [];
   @observable flightID = [];
 
 
@@ -26,9 +26,14 @@ export class AppStore {
  setFlights = (response) =>{
 
    response.data.flights.forEach((flight) => {
-     console.log(flight);
-      this.flightID.push(<li key={flight.flightId}>{flight.arrivalAirportEnglish}</li>);
+
+      this.flights.push(
+        <option
+         key={flight.flightId}
+         value={flight.arrivalAirportEnglish}>
+         {flight.arrivalAirportEnglish}
+         </option>);
    })
-   console.log(this.flightID);
-   return this.flightID;
+   console.log(this.flights);
+   return this.flights;
 }}

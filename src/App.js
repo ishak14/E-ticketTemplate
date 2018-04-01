@@ -9,11 +9,25 @@ import {AppStore} from './store/appStore';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: 'coconut'
+    };
     this.appStore = new AppStore();
-  }
-
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+}
  componentWillMount(){
   this.appStore.getSwedaviaData();
+}
+handleChange(event) {
+  console.log(event.target.value);
+  this.setState({
+    value: event.target.value
+  });
+}
+handleSubmit(event){
+  alert('Your favorite flavor is: ' + this.state.value);
+  event.preventDefault();
 }
   render() {
 
@@ -23,11 +37,9 @@ class App extends Component {
         <div className="header">
           <p className="date">den 23 april 2018 - den 29 april 2018</p>
           <p className="nameFirstPerson">
-
+              Andy Ishak
           </p>
-          <ul>
-          {this.appStore.flightID}
-          </ul>
+
           <p className="reference">
             #EF2244F2
           </p>
@@ -49,6 +61,18 @@ class App extends Component {
             airplaneInfo="SK505"
             flightTime="3h 50m"
             />
+          <form onSubmit={this.handleSubmit.bind(this)}>
+                 <label>
+                   Pick your favorite La Croix flavor:
+                  <select value={this.state.value} onChange={this.handleChange.bind(this)}>
+                     <option value="grapefruit">Grapefruit</option>
+                     <option value="lime">Lime</option>
+                     <option value="coconut">Coconut</option>
+                     <option value="mango">Mango</option>
+                   </select>
+                 </label>
+                 <input type="submit" value="Submit" />
+               </form>
         </div>
         <div className="footer">
           <h1>ANDYRESOR</h1>
