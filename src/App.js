@@ -12,15 +12,24 @@ class App extends Component {
     super(props);
     this.state = {
       value: 'coconut',
+      currentFlight: "",
+
     };
     this.appStore = new AppStore();
 
   }
   handleChange = (event)=> {
-    this.setState({value: event.target.value});
+    const currentFlight = this.appStore.flights[event.target.value].props;
+      console.log(currentFlight);
+    this.setState({
+      value: event.target.value,
+      currentFlight: this.appStore.flights[event.target.value].props,
+    });
+
   }
 
   handleSubmit = (event) => {
+
     alert('Your favorite flavor is: ' + this.state.value);
     event.preventDefault();
   }
@@ -45,19 +54,18 @@ class App extends Component {
         </div>
         <div className="body">
           <Ticket
-            departureDay="den 23 april 2018"
-            departureTime="8:30"
+            departureDay={this.state.currentFlight.departureDate}
+            departureTime={this.state.currentFlight.departureTime}
             departureCity="Stockholm"
-            departureAirport="Arlanda"
-            departureIATA="ARN"
-            arrivalDay="den 23 april 2018"
-            arrivalTime="12:30"
-            arrivalCity={this.state.value}
-            arrivalAirport="Erbil international airport"
-            arrivalIATA="EBL"
+            departureIATA={this.state.currentFlight.departureIata}
+            arrivalDay={this.state.currentFlight.departureDate}
+            arrivalTime=""
+            arrivalCity={this.state.currentFlight.children}
+            arrivalAirport=""
+            arrivalIATA={this.state.currentFlight.arrivalIata}
             referenceNumber="#EFC200D"
-            terminal="5"
-            airplaneInfo="SK505"
+            terminal={this.state.currentFlight.terminal}
+            airplaneInfo={this.state.currentFlight.flightID}
             flightTime="3h 50m"
             />
           <form onSubmit={this.handleSubmit}>

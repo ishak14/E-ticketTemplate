@@ -24,16 +24,23 @@ export class AppStore {
 }
 
  setFlights = (response) =>{
-
+   let id = 0;
    response.data.flights.forEach((flight) => {
-
+     console.log(flight);
       this.flights.push(
         <option
-         key={flight.flightId}
-         value={flight.arrivalAirportEnglish}>
+         key={id}
+         value={id}
+         departureDate={flight.departureTime.estimatedUtc.substring(1,14)}
+         departureTime={flight.departureTime.estimatedUtc.substring(11,16)}
+         arrivalIata={flight.flightLegIdentifier.arrivalAirportIata}
+         departureIata={flight.flightLegIdentifier.departureAirportIata}
+         flightID={flight.flightId}
+         terminal={flight.locationAndStatus.terminal}
+         >
          {flight.arrivalAirportEnglish}
          </option>);
+         id = id+1;
    })
-   console.log(this.flights);
    return this.flights;
 }}
