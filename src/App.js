@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       value: '1',
-      currentFlight: "",
+      currentFlight: "1",
 
     };
     this.appStore = new AppStore();

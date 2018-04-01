@@ -7,11 +7,14 @@ html,body{
 body{
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
+  //background: rgba(255,255,255,1) url(airplane.svg) no-repeat right top;
+
 }
+
 .background{
   width: 200mm;
   height: 277mm;
-  position: absolute;
+
   background: rgba(255,255,255,0.1) url(airplane.svg) no-repeat right top;
   opacity: 0.1;
   z-index: 1;
@@ -53,7 +56,7 @@ body{
 }
 
 .container .body{
-    background-color: white;
+
     grid-row-start: 2;
     grid-row-end:3;
     grid-column-start: 2;
