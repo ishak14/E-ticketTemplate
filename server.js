@@ -29,16 +29,18 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   next();
 });
-
+  var data;
 
 app.get('/swedavia', function (req, res, next) {
+
   axios.get("https://api.swedavia.se/flightinfo/v2/ARN/departures/2018-04-04",config)
   .then(function (res) {
+    data = res.data;
   })
   .catch(function (error) {
   console.log(error);
   });
-  res.json(res.data);
+  res.json(data);
 })
 
 
