@@ -11,22 +11,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       value: 'coconut',
+      value: 'coconut',
     };
     this.appStore = new AppStore();
 
-}
-handleChange = (event)=> {
-  this.setState({value: event.target.value});
-}
+  }
+  handleChange = (event)=> {
+    this.setState({value: event.target.value});
+  }
 
-handleSubmit = (event) => {
-  alert('Your favorite flavor is: ' + this.state.value);
-  event.preventDefault();
-}
- componentWillMount(){
-  this.appStore.getSwedaviaData();
-}
+  handleSubmit = (event) => {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+  componentWillMount(){
+    this.appStore.getSwedaviaData();
+  }
 
   render() {
     const { selectedOption } = this.state;
@@ -37,7 +37,7 @@ handleSubmit = (event) => {
         <div className="header">
           <p className="date">den 23 april 2018 - den 29 april 2018</p>
           <p className="nameFirstPerson">
-              Andy Ishak
+            Andy Ishak
           </p>
 
           <p className="reference">
@@ -61,18 +61,18 @@ handleSubmit = (event) => {
             airplaneInfo="SK505"
             flightTime="3h 50m"
             />
-            <form onSubmit={this.handleSubmit}>
-        <label>
-          Pick your favorite La Croix flavor:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Pick your favorite La Croix flavor:
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option value="grapefruit">Grapefruit</option>
+                <option value="lime">Lime</option>
+                <option value="coconut">Coconut</option>
+                <option value="mango">Mango</option>
+              </select>
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
         </div>
 
       </div>
