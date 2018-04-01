@@ -29,8 +29,7 @@ class App extends Component {
   }
 
   render() {
-    const { selectedOption } = this.state;
-    const value = selectedOption && selectedOption.value;
+
     return (
       <div className="container SimplePDF">
         <div className="background"></div>
