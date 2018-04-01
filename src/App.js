@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'coconut',
+      value: '1',
       currentFlight: "",
 
     };

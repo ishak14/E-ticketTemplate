@@ -31,7 +31,7 @@ export class AppStore {
         <option
          key={id}
          value={id}
-         departureDate={flight.departureTime.estimatedUtc.substring(1,14)}
+         departureDate={flight.flightLegIdentifier.flightDepartureDateUtc.substring(1,14)}
          departureTime={flight.departureTime.estimatedUtc.substring(11,16)}
          arrivalIata={flight.flightLegIdentifier.arrivalAirportIata}
          departureIata={flight.flightLegIdentifier.departureAirportIata}

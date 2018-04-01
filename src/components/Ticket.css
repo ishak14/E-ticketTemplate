@@ -15,13 +15,13 @@ p{
 .ticket-container .ticket-header{
   border-bottom: 2px dashed grey;
   display: grid;
-  grid-template-columns: 3.6em 15em auto;
+  grid-template-columns: 3.6em auto;
   grid-template-rows:auto;
 }
 .ticket-header .info{
-
+  margin-left: 10px;
   align-self: center;
-  justify-self: center;
+  justify-self: left;
   line-height: 1.3em;
   text-align: left;
 }
